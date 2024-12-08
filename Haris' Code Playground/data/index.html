@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haris' Code Playground</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Ace Editor -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+
+  <!-- Blockly -->
+  <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+
+  <!-- Brython for Python Support -->
+  <script src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
+
+  <!-- CheerpJ for Java Support -->
+  <script src="https://leaningtech.com/cheerpj/2.2/cheerpj.js"></script>
+</head>
+<body onload="brython()">
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Coding Options</h2>
+      <button class="sidebar-button" onclick="switchLanguage('html')">HTML</button>
+      <button class="sidebar-button" onclick="switchLanguage('css')">CSS</button>
+      <button class="sidebar-button" onclick="switchLanguage('javascript')">JavaScript</button>
+      <button class="sidebar-button" onclick="switchLanguage('python')">Python</button>
+      <button class="sidebar-button" onclick="switchLanguage('java')">Java</button>
+      <button class="sidebar-button" onclick="showEditor('visual')">Visual (Blockly)</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="header">
+        <h1>Haris' Code Playground</h1>
+      </div>
+
+      <div class="editor-container">
+        <!-- Text Editors -->
+        <div id="textEditor" class="editor">
+          <pre id="editor"></pre>
+        </div>
+        
+        <!-- Visual Editor (Blockly) -->
+        <div id="visualEditor" class="editor" style="display:none;">
+          <div id="blocklyDiv" style="height: 100%; width: 100%;"></div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <button class="run-button" onclick="runCode()">Run Code</button>
+        <button class="save-button" onclick="saveCode()">Save</button>
+        <button class="load-button" onclick="loadCode()">Load</button>
+      </div>
+
+      <!-- Output iframe for HTML/CSS -->
+      <iframe id="outputFrame" style="width: 100%; height: 300px; display: none;"></iframe>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
